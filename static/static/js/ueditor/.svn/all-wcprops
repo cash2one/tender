@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/opportal/!svn/ver/32/trunk/operation_portal/static/develop/js/ueditor
+END
+editor_config.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/opportal/!svn/ver/33/trunk/operation_portal/static/develop/js/ueditor/editor_config.js
+END
+editor_all.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/opportal/!svn/ver/33/trunk/operation_portal/static/develop/js/ueditor/editor_all.js
+END
+uparse.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/opportal/!svn/ver/10/trunk/operation_portal/static/develop/js/ueditor/uparse.js
+END
+editor_all_min.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/opportal/!svn/ver/33/trunk/operation_portal/static/develop/js/ueditor/editor_all_min.js
+END

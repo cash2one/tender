@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/cmdb_2/!svn/ver/176/trunk/confmgr/templates/account
+END
+mail.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/cmdb_2/!svn/ver/153/trunk/confmgr/templates/account/mail.html
+END
+register.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cmdb_2/!svn/ver/176/trunk/confmgr/templates/account/register.html
+END
+edit.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/cmdb_2/!svn/ver/176/trunk/confmgr/templates/account/edit.html
+END
+searchback.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/cmdb_2/!svn/ver/147/trunk/confmgr/templates/account/searchback.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/cmdb_2/!svn/ver/37/trunk/confmgr/templates/account/login.html
+END
+info.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/cmdb_2/!svn/ver/37/trunk/confmgr/templates/account/info.html
+END
+welcome.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/cmdb_2/!svn/ver/119/trunk/confmgr/templates/account/welcome.html
+END

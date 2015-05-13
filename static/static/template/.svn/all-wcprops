@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/cmdb_2/!svn/ver/200/trunk/confmgr/static/static/template
+END
+isp_list.csv
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/template/isp_list.csv
+END
+virtualconf_list.csv
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/virtualconf_list.csv
+END
+isp_list.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/isp_list.xlsx
+END
+isp_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cmdb_2/!svn/ver/194/trunk/confmgr/static/static/template/isp_template.xlsx
+END
+nocinfo_list.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/nocinfo_list.xlsx
+END
+nocinfo_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/cmdb_2/!svn/ver/197/trunk/confmgr/static/static/template/nocinfo_template.xlsx
+END
+virtualconf_list.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/virtualconf_list.xlsx
+END
+virtualconf_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/cmdb_2/!svn/ver/205/trunk/confmgr/static/static/template/virtualconf_template.xlsx
+END
+nocnetinfo_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/cmdb_2/!svn/ver/200/trunk/confmgr/static/static/template/nocnetinfo_template.xlsx
+END
+equipment_list.csv
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/equipment_list.csv
+END
+equipment_list.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/cmdb_2/!svn/ver/175/trunk/confmgr/static/static/template/equipment_list.xlsx
+END
+serverconf_list.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/cmdb_2/!svn/ver/189/trunk/confmgr/static/static/template/serverconf_list.xlsx
+END
+serverconf_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/cmdb_2/!svn/ver/200/trunk/confmgr/static/static/template/serverconf_template.xlsx
+END
+rack_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/cmdb_2/!svn/ver/199/trunk/confmgr/static/static/template/rack_template.xlsx
+END
+~$rack_template.xlsx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/cmdb_2/!svn/ver/197/trunk/confmgr/static/static/template/~$rack_template.xlsx
+END

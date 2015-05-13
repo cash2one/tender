@@ -1,0 +1,595 @@
+﻿﻿{% load static %}
+<table width="1000" border="0" align="center" cellpadding="0"
+	cellspacing="0">
+	<tr>
+		<td>
+			<table width="1003" height="154" border="0" align="center"
+				cellpadding="0" cellspacing="0" class="margin">
+				<tr>
+					<td width="82%" valign="top">
+						<table width="747" height="313" border="0" cellpadding="0"
+							cellspacing="0" bgcolor="#FFFFFF" class="bor1">
+							<tr>
+								<td height="27" colspan="2" valign="top">
+									<table width="100%" height="35" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+										<tr>
+											<td width="17">
+												&nbsp;
+											</td>
+											<td width="310" align="left">
+												<span class="font1">图片新闻</span>
+											</td>
+											<td width="372" align="left">
+												<span class="font1">招标新闻</span>
+											</td>
+											<td width="46" align="left">
+												<a href="/common/tender_index/9/1">更多&gt;&gt;</a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td width="328" height="207" align="center" valign="middle"
+									style="padding-top: 5px;">
+									<script type="text/javascript">
+var focus_width=320;
+var focus_height=240;
+var text_height=23;
+var swf_height = focus_height+text_height
+var pics='{% get_static_prefix %}js/tender/uploadfile/2013-02-26/20130226120025960.jpg|{% get_static_prefix %}js/tender/uploadfile/2013-02-26/20130226115921215.jpg|{% get_static_prefix %}js/tender/uploadfile/2013-04-19/20130419103842915.jpg';		//图片
+var links='||' ;		//链接
+var texts='|中国招标投标协会第一届理事会第九次全体会议在京召开|河北奥冠电源有限责任公司';	//标题
+				
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{% get_static_prefix %}js/tender/swf/pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#DADADA">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+(focus_width+2)+'&borderheight='+(focus_height+2)+'&textheight='+text_height+'">');
+document.write('<embed src="{% get_static_prefix %}js/tender/swf/pixviewer.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#DADADA" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+//-->
+</script>
+								</td>
+								<td width="417" valign="top" class="padding0">
+									{% for notice in notices_news|slice:"0:11" %}
+									<table width="100%" border="0" align="center" cellpadding="0"
+										cellspacing="0" style="font-size: 13px">
+										<tr>
+											<td width="3%" align="center">
+												<img
+													src="{% get_static_prefix %}js/tender/templates/default/images/icon1.jpg"
+													width="4" height="4" />
+											</td>
+											<td width="87%" height="26">
+												<a target='_blank' href='{% url tender_detail notice.id %}'
+													title="{{ notice.notice_name }}">{{ notice.notice_name }}</a>
+											</td>
+											<td width="10%" class="date">
+												{{ notice.release_time|date:'m-d' }}
+											</td>
+										</tr>
+									</table>
+									{% endfor %}
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="18%" valign="top">
+						<table width="250" border="0" cellpadding="0" cellspacing="0"
+							bgcolor="#FFFFFF" class="bor1">
+							<tr>
+								<td width="375" height="27" valign="top">
+									<table width="100%" height="35" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+										<tr>
+											<td width="6">
+												&nbsp;
+											</td>
+											<td align="center" class="menu">
+												<table width="117" height="32" border="0" cellpadding="0"
+													cellspacing="0"
+													background="{% get_static_prefix %}js/tender/templates/default/images/bg3.jpg">
+													<tr>
+														{% if user.is_authenticated %}
+									                      <td align="center">供应商会员信息</td>
+									                    {% else %}
+									                      <td align="center">供应商会员登陆</td>
+									                    {% endif %}
+													</tr>
+												</table>
+											</td>
+											<td width="116" align="right" class="more">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td height="27" valign="top" class="padding10">
+									
+									<table width="95%" height="90" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+						            {% if user.is_authenticated %}
+						            	<tr>
+							                <td width="26%" height="20">角色：                </td>
+							                <td width="74%" height="20">
+							                	{% for key,value in account_usertype_dict.items %}
+													{% ifequal user.userprofile.user_type key %}
+														<input name="role" type="text" id="j_role" size="20" class="logininput" value="{{ value }}" >
+													{% endifequal %}
+												{% endfor %}
+							                </td>
+										</tr>
+						            	<tr>
+							                <td width="26%" height="20">用户名：                </td>
+							                <td width="74%" height="20"><input name="username" type="text" id="j_username" size="20" value="{{user.username}}" class="logininput"></td>
+										</tr>
+										<tr>
+							                <td height="20" align="center">&nbsp;</td>
+							                <td height="20" align="left"><input name="退出" type="button" class="logout" value="" onclick="javascript: logout();" /></td>
+							             </tr>
+						            {% else %}
+						              <form id="lazyForm" method="post" action="{% url accounts_login %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+									  <tr>
+						                <td width="26%" height="20">用户名：                </td>
+						                <td width="74%" height="20"><input name="username" type="text" id="j_username" size="20"  class="logininput"></td>
+									  </tr>
+						              <tr>
+						                <td height="20">密&nbsp;&nbsp;码：                </td>
+						                <td height="20"><input name="password" type="password" id="j_password" size="20" class="logininput"></td>
+						              </tr>
+						              <tr>
+						                <td height="20" align="center">&nbsp;</td>
+						                <td height="20" align="left"><input name="Submit22" type="submit" class="login" value=" " />
+						                  &nbsp;
+						                  <input name="Submit" type="button" class="quxiao" value=" " onclick="location.href='{% url accounts_register_test %}'"></td>
+						              </tr>
+						              </form>
+						            {% endif %}
+									</table>
+									<table width="95%" height="141" border="0" align="center"
+										cellpadding="0" cellspacing="0">
+										<tr>
+											<td align="center">
+												<table width="213" border="0" cellpadding="0"
+													cellspacing="3">
+													<tr>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															项目运作支持
+														</td>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															邀标推荐入围
+														</td>
+													</tr>
+													<tr>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															邮件定制
+														</td>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															竞争对手监控
+														</td>
+													</tr>
+													<tr>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															监控最新招标
+														</td>
+														<td width="102" height="28"
+															background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg"
+															style="padding-left: 20px; color: #FFFFFF">
+															优先进入预选
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<table width="96%" height="67" border="0" align="center"
+													cellpadding="0" cellspacing="0" style="line-height: 20px;">
+													<tr>
+														<td height="60">
+															<strong>入会咨询</strong>：86-010-87674470
+															<br />
+															<strong>客服电话</strong>：86-010-87677958
+															<br />
+															&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13521175562
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"
+				class="margin">
+				<tr>
+					<td>
+						<script type="text/javascript">
+var focus_width=498;
+var focus_height=100;
+var text_height=0;
+var swf_height = focus_height+text_height
+var pics='{% get_static_prefix %}js/tender/uploadfile/2013-02-28/20130228083244734.jpg';		//图片
+var links='' ;		//链接
+var texts='横幅广告';	//标题
+				
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{% get_static_prefix %}js/tender/swf/pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#DADADA">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+(focus_width+2)+'&borderheight='+(focus_height+2)+'&textheight='+text_height+'">');
+document.write('<embed src="{% get_static_prefix %}js/tender/swf/pixviewer.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#DADADA" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+//-->
+</script>
+					</td>
+					<td align="right">
+						<script type="text/javascript">
+var focus_width=498;
+var focus_height=100;
+var text_height=0;
+var swf_height = focus_height+text_height
+var pics='{% get_static_prefix %}js/tender/uploadfile/2013-02-28/20130228082628899.jpg';		//图片
+var links='' ;		//链接
+var texts='横幅广告';	//标题
+				
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{% get_static_prefix %}js/tender/swf/pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#DADADA">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+(focus_width+2)+'&borderheight='+(focus_height+2)+'&textheight='+text_height+'">');
+document.write('<embed src="{% get_static_prefix %}js/tender/swf/pixviewer.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#DADADA" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+//-->
+</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="1003" border="0" cellpadding="0" cellspacing="0"
+				class="margin">
+				<tr>
+					<td width="265" valign="top">
+						<table width="250" border="0" cellpadding="0" cellspacing="0"
+							class="bor1">
+							<tr>
+								<td>
+									<table width="100%" height="32" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/hyfl.jpg">
+										<tr>
+											<td width="13">
+												&nbsp;
+											</td>
+											<td align="left" class="menu">
+												新加入供应商
+											</td>
+											<td width="43" align="left" class="more1">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="padding10" style="line-height: 20px">
+									<div id="demo_t0" style="overflow: hidden; height: 286px"
+										onmouseover="demo_ti=1" onmouseout="demo_ti=0">
+										<div id=demo_t1>
+										
+											{% for user_provider in users_provider|slice:"0:" %}
+											<table width="100%" height="25" border="0" align="center"
+												cellpadding="0" cellspacing="0" style="margin-bottom: 4px">
+												<tr>
+													<td width="3%" align="center">
+														·
+													</td>
+													<td width="87%">
+														{{ user_provider.userprofile.company }}
+													</td>
+												</tr>
+											</table>
+											{% endfor %}
+										
+										</div>
+										<div id=demo_t2></div>
+										<script>
+<!---->
+var demo_ti=0;
+demo_t2.innerHTML=demo_t1.innerHTML
+function demo_Marquee(){
+  if (demo_ti==1)return
+  if(demo_t2.offsetTop-demo_t0.scrollTop<=0)
+	demo_t0.scrollTop-=demo_t1.offsetHeight
+  else
+	demo_t0.scrollTop++
+}
+setInterval(demo_Marquee,50)
+<!---->
+</script>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="378" height="207" valign="top">
+						<table width="365" border="0" align="left" cellpadding="0"
+							cellspacing="0" class="bor1">
+							<tr>
+								<td height="29">
+									<table width="100%" height="32" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/hyfl.jpg">
+										<tr>
+											<td width="13">
+												&nbsp;
+											</td>
+											<td align="left" class="menu">
+												招标公告
+											</td>
+											<td width="43" align="left" class="more1">
+												<a href="/common/tender_index/1/1">更多&gt;&gt;</a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td valign="top" class="padding10">
+									{% for notice in notices_notice|slice:"0:11" %}
+									<table width="100%" border="0" align="center" cellpadding="0"
+										cellspacing="0">
+										<tr>
+											<td width="3%" align="center">
+												·
+											</td>
+											<td width="87%" height="26">
+												<a target='_blank' href='{% url tender_detail notice.id %}'
+													title="{{ notice.notice_name }}">{{ notice.notice_name }}</a>
+											</td>
+											<td width="10%" class="date">
+												{{ notice.release_time|date:'m-d' }}
+											</td>
+										</tr>
+									</table>
+									{% endfor %}
+
+
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="366" valign="top">
+						<table width="365" border="0" align="right" cellpadding="0"
+							cellspacing="0" class="bor1">
+							<tr>
+								<td>
+									<table width="100%" height="32" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/hyfl.jpg">
+										<tr>
+											<td width="13">
+												&nbsp;
+											</td>
+											<td align="left" class="menu">
+												招标热点
+											</td>
+											<td width="43" align="left" class="more1">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="padding10">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<table width="100%" border="0" align="left" cellpadding="0"
+													cellspacing="0">
+													<tr>
+														<td height="286" valign="top">
+															<span style="padding: 0px 5px; line-height: 24px">
+															{% for hotspot in hotspots %}
+																<a href='/common/tender_index/12/1/?KeyName={{ hotspot.hotspot_name }}'>{{ hotspot.hotspot_name }}</a><span style='color: #999999; margin: 0px 3px'>|</span>
+															{% endfor %}
+															</span>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"
+				class="margin">
+				<tr>
+					<td>
+						<script type="text/javascript">
+var focus_width=1002;
+var focus_height=110;
+var text_height=0;
+var swf_height = focus_height+text_height
+var pics='{% get_static_prefix %}js/tender/uploadfile/2013-02-27/20130227184038883.jpg';		//图片
+var links='' ;		//链接
+var texts='横幅广告';	//标题
+				
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ focus_width +'" height="'+ swf_height +'">');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{% get_static_prefix %}js/tender/swf/pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#DADADA">');
+document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+(focus_width+2)+'&borderheight='+(focus_height+2)+'&textheight='+text_height+'">');
+document.write('<embed src="{% get_static_prefix %}js/tender/swf/pixviewer.swf" wmode="opaque" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#DADADA" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+document.write('</object>');
+//-->
+</script>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table width="1000" border="0" align="left" cellpadding="0"
+				cellspacing="0" class="bor1 margin">
+				<tr>
+					<td>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td>
+									<table width="100%" height="32" border="0" cellpadding="0"
+										cellspacing="0"
+										background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+										<tr>
+											<td width="13">
+												&nbsp;
+											</td>
+											<td width="76" align="center" class="font1">
+												<a href="#">合作伙伴</a>
+											</td>
+											<td width="912" align="right" class="more">
+												&nbsp;
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<img
+										src="{% get_static_prefix %}js/tender/templates/default/images/cgbg.jpg"
+										width="1001" height="3" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="padding10" style="line-height: 20px">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0"
+							class="bor">
+							<tr>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2012-10-10/20121010183555455.jpg"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2012-10-10/20121010184050272.gif"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2012-10-10/20121010183806621.gif"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2013-02-27/20130227182626230.gif"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2012-10-10/20121010183855990.jpg"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="padding: 3px">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td>
+												<a href="http://www.sgcc.com.cn/" target="_blank"
+													title="合作伙伴"><img
+														src="{% get_static_prefix %}js/tender/uploadfile/2012-10-10/20121010183917321.gif"
+														width="149" height="39" alt="合作伙伴" border="0"> </a>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<tr>
+								</tr>
+						</table>
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="35" valign="bottom">
+									<a href="" target="_blank" title="中国机械进出口（集团）有限公司">中国机械进出口（集团）有限公司</a>&nbsp;|
+									<a href="" target="_blank" title="中国招投标采购网">中国招投标采购网</a>&nbsp;|
+									<a href="" target="_blank" title="中国电力招标与采购网">中国电力招标与采购网</a>&nbsp;|
+									<a href="" target="_blank" title="供应商会员协议书下载">供应商会员协议书下载</a>&nbsp;|
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

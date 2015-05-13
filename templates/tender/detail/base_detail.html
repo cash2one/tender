@@ -1,0 +1,247 @@
+﻿<script type="text/javascript">
+<!--
+	/**
+	 * a_obj: 表示超链接对象
+	 * base_type: 表示模块类型，1:u'招标公告', 2:u'中标公告', 3:u'招标变更', 4:u'预审公告', 5:u'电力项目', 6:u'重点工程', 7:u'法规中心', 8:u'标书下载'
+	 * page_type："first":"首页", "previous":"上一页", "next":"下一页", "last":"尾页 "
+	 * currentPage: 表示 当前页数
+	 * num_pages: 表示总页数
+	 * 
+	 */
+	function changeURL(a_obj, base_type, page_type, currentPage, num_pages) {
+		//var href = $(a_obj).attr("href");
+		var href = "/common/tender_index/";
+		href = href + base_type + "/";
+		
+		var pageNum = 1;
+		if(page_type == "first") {
+			pageNum = 1;
+		} else if(page_type == "previous") {
+			if(currentPage > 1) {
+				pageNum = currentPage - 1;
+			} else {
+				pageNum = currentPage
+			}
+		} else if(page_type == "next") {
+			if(currentPage < num_pages) {
+				pageNum = currentPage + 1;
+			} else {
+				pageNum = currentPage
+			}
+		} else if(page_type == "last") {
+			pageNum = num_pages;
+		}
+		href += pageNum
+		
+		$(a_obj).attr("href", href); // 不能写成这样：$(a_obj).attr("href") = href;
+		
+	}
+	
+	$(document).ready(function(){
+	 	$("#j_username").keydown(function(event){
+	 		if(event.keyCode==13){
+	 			$("#j_password").focus();
+	 		}
+		});
+	 	$("#j_password").keydown(function(event){
+	 		if(event.keyCode==13)
+	 			subForm();
+	 	});
+	});
+	
+	
+	function subForm(){
+		var userName = document.getElementById("j_username");
+		var b = true;
+		if(userName.value==""){
+			alert("帐户不能为空");
+			$("#j_username").focus();
+			b = false;
+			return;
+		}
+		var password = document.getElementById("j_password");
+		if(password.value==""){
+			alert("密码不能为空");
+			$("#j_password").focus();
+			b = false;
+			return;
+		}
+		/*
+		var rolename = document.getElementById("rolename");
+		if(rolename.value < 0){
+			alert("请选择角色");
+			b = false;
+			return;
+		}
+		*/
+		if(b){
+			var form = document.getElementById("lazyForm");
+			form.submit();
+		}
+		return false;
+	}
+	
+	function logout(){
+		window.location = "{% url accounts_logout %}";
+	}
+	
+	
+//-->
+</script>
+
+
+{% load static %}
+
+<table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1003" height="154" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+      <tr>
+        <td width="82%" valign="top">
+        	
+        	
+          
+        	
+        	
+          <table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+            <tr>
+              <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">招标热点</span></a></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td height="27" valign="top" class="padding10"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="line-height:22px;text-align:justify; text-justify:inter-ideograph">
+                    {% for hotspot in hotspots %}
+                    	<a href='/common/tender_index/12/1/?KeyName={{ hotspot.hotspot_name }}'>{{ hotspot.hotspot_name }}</a><span style='color:#999999;margin:0px 3px'>|</span>
+                    {% endfor %}
+                    </td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+          
+          {% include "tender/base_user.html" %}
+          
+</td>
+        <td width="18%" valign="top" class="bor1"><table width="747" height="313" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="745" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="116" align="center" background="{% get_static_prefix %}js/tender/templates/default/images/loginbg.jpg" class="menu">
+                    	{% ifequal notice.notice_type 1 %}
+                    		招标公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 2 %}
+                    		中标公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 3 %}
+                    		招标变更
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 4 %}
+                    		预审公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 5 %}
+                    		电力项目
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 6 %}
+                    		重点工程
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 7 %}
+                    		法规中心
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 8 %}
+                    		标书下载
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 9 %}
+                    		招标新闻
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 12 %}
+                    		信息搜索
+                    	{% endifequal %}
+                    </td>
+                    <td width="587" align="right" class="more">您当前的位置：<a href="/tender/">网站首页</a>&gt; 
+                    	{% ifequal notice.notice_type 1 %}
+                    		招标公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 2 %}
+                    		中标公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 3 %}
+                    		招标变更
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 4 %}
+                    		预审公告
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 5 %}
+                    		电力项目
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 6 %}
+                    		重点工程
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 7 %}
+                    		法规中心
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 8 %}
+                    		标书下载
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 9 %}
+                    		招标新闻
+                    	{% endifequal %}
+                    	{% ifequal notice.notice_type 12 %}
+                    		信息搜索
+                    	{% endifequal %}
+                    </td>
+                    <td width="30" align="right" class="more">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+	            <td height="719" align="center" valign="top" style="padding-top:5px;"><table width="720" cellpadding="0" cellspacing="0">
+	                <tr>
+	                  <td width="745" height="45" align="center" bgcolor="#FAFAFA" style="font-size:16px"><strong>{{ notice.notice_name }}</strong></td>
+	                </tr>
+	                <tr>
+	                  <td width="745" height="25" align="center" bgcolor="#EAEAEA">www.chinazbcgou.com.cn&nbsp; 所属地区：
+	                  	{% for key,value in notice_area_dict.items %}
+							{% ifequal notice.notice_area key %}
+									{{ value }}
+							{% endifequal %}
+						{% endfor %}
+	                   	&nbsp;发布日期：{{ notice.release_time|date:'Y-m-d H:i:s' }} </td>
+	                </tr>
+	                <tr>
+	                  <td height="500" align="left" valign="top" style="line-height:160%">
+					  <p>                    <br />
+	                    信息编号：{{ notice.noticeid }}<br />
+	                    项目名称：{{ notice.notice_name }}<br />
+	                    所属地区：{% for key,value in notice_area_dict.items %}
+						{% ifequal notice.notice_area key %}
+								{{ value }}
+						{% endifequal %}
+					 {% endfor %}<br />
+	                    发布日期：{{ notice.release_time|date:'Y-m-d H:i:s' }}<br />
+	                    项目内容：<br />
+	                  {{ notice.notice_content }}  
+	                   </p>
+						
+						  
+						  
+						  
+	                    <p>&nbsp;</p></td>
+	                </tr>
+	            </table></td>
+	          </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+

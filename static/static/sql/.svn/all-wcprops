@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/cmdb_2/!svn/ver/67/trunk/confmgr/static/static/sql
+END
+account_userprofile.sql
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cmdb_2/!svn/ver/67/trunk/confmgr/static/static/sql/account_userprofile.sql
+END
+confmgr.sql
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/cmdb_2/!svn/ver/67/trunk/confmgr/static/static/sql/confmgr.sql
+END
+auth_user.sql
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/cmdb_2/!svn/ver/67/trunk/confmgr/static/static/sql/auth_user.sql
+END

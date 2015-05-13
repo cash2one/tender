@@ -1,0 +1,122 @@
+{% load static %}
+<script type="text/javascript" charset="utf-8" src="{% get_static_prefix %}js/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="{% get_static_prefix %}js/ueditor/editor_all.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//初始化 富文本编辑器 ueditor
+		//实例化编辑器
+	    UE.getEditor('editor');
+		
+		/*
+		//初始化 富文本编辑器 ueditor
+		//实例化编辑器
+		var ue = UE.getEditor('editor');
+		ue.ready(function(){
+			//需要ready后执行，否则可能报错
+			var ss = $("#content_hidden").val();
+			//alert(ss);
+			ue.setContent(decodeHTML(ss));
+		});
+		*/
+	});
+	
+	
+	function validateCallback(form, callback) {
+		var $form = $(form);
+		if (!$form.valid()) {
+			return false;
+		}
+		
+		var url = $(form).attr("action");
+	    var data = $(form).serializeArray();
+	    var item = {'name':'notice_content', 'value':UE.getEditor('editor').getContent()};
+	    //alert(item);
+	    data.push(item);
+	    //alert(data);
+		
+		$.ajax({
+			type: form.method || 'POST',
+			url: url,
+			data: data,
+			dataType:"json",
+			cache: false,
+			success: callback || DWZ.ajaxDone,
+			error: DWZ.ajaxError
+		});
+		return false;
+	}
+	
+</script>
+
+
+<div class="page">
+	<div class="pageContent">
+	
+	<form method="post" action="{% url notice_add %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+		<input type="hidden" name="navTabId" value="noticeindex"/>
+		<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>公告编号：</label>
+				<input type="text" class="required" size="30"  name="noticeid" value="" />
+				<span class="info">&nbsp;&nbsp;&nbsp;(公告编号)</span>
+			</div>
+			<div class="unit">
+				<label>公告名称：</label>
+				<input type="text" class="required" size="30" name="notice_name" value="" />
+			</div>
+            <div class="unit">
+				<label>所属地区：</label>
+				<select name="notice_area" class="required combox" >
+					{% for key,value in notice_area_dict.items|slice:"1:" %}
+						<option value="{{ key }}">{{ value }}</option>
+					{% endfor %}
+				</select>
+			</div>
+            <div class="unit">
+				<label>公告类型：</label>
+				<select name="notice_type" class="required combox" >
+					{% for key,value in notice_type_dict.items|slice:"1:" %}
+						<option value="{{ key }}">{{ value }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="unit">
+				<label>是否对外公布：</label>
+				 <input type="radio" name="flag" value="0" checked="checked" /> 是&nbsp;&nbsp;&nbsp;
+             	 <input type="radio" name="flag" value="1" /> 否
+			</div>
+            <div class="unit">
+				<label>备注：</label>
+				<input type="text" class="" size="30" name="desc" value="" />
+			</div>
+            <div class="unit">
+            	<!-- 
+				<span>公告内容：</span>
+				<script id="editor" name="content" type="text/plain">请填写公告内容。</script>
+				<span style="color:#f00">如需使用空格，请使用中文(全角)空格</span>
+				 -->
+				<table>
+					<tr>
+						<td style="vertical-align:top;"><label>公告内容：</label></td>
+						<td>
+							<script  id="editor" name="notice_content" type="text/plain">请填写公告内容。</script>
+							<span style="color:#f00">如需使用空格，请使用中文(全角)空格</span>
+						</td>
+					</tr>
+				</table>
+			
+			</div>
+
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>

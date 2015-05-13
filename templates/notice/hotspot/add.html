@@ -1,0 +1,36 @@
+<div class="page">
+	<div class="pageContent">
+	
+	<form method="post" action="{% url notice_hotspot_add %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+		<input type="hidden" name="navTabId" value="noticehotspotindex"/>
+		<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>热点编号：</label>
+				<input type="text" class="required" size="30"  name="hotspotid" value="" />
+				<span class="info">&nbsp;&nbsp;&nbsp;(热点编号)</span>
+			</div>
+			<div class="unit">
+				<label>热点名称：</label>
+				<input type="text" class="required" size="30" name="hotspot_name" value="" />
+			</div>
+			<div class="unit">
+				<label>热点级别：</label>
+				<input type="text" class="required" size="30" name="level" value="" />
+			</div>
+            <div class="unit">
+				<label>备注：</label>
+				<input type="text" class="" size="30" name="desc" value="" />
+			</div>
+
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>

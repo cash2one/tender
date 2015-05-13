@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css
+END
+login.css
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/login.css
+END
+base.css
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/base.css
+END
+ie.css
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/ie.css
+END
+rtl.css
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/rtl.css
+END
+changelists.css
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/changelists.css
+END
+forms.css
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/forms.css
+END
+widgets.css
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/widgets.css
+END
+dashboard.css
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/static/static/admin/css/dashboard.css
+END

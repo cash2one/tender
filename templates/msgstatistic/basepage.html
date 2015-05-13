@@ -1,0 +1,126 @@
+<script type="text/javascript">
+<!--
+	$(document).ready(function() {
+		$("#account").autocomplete("{% url msgstatistic_autocomplete %}", {
+			minChars: 0,
+			max: 10,
+			matchContains: true,
+			scroll: true,
+			scrollHeight: 300
+		}).result(function(event, data, formatted){
+			//alert(data); data为选中的数据
+			//$.ajaxSettings.global = true;
+		});
+		
+		$("#account").focus(function(){
+			$.ajaxSettings.global = false;
+		});
+		$("#account").blur(function(){
+			$.ajaxSettings.global = true;
+		});
+	});
+//-->
+</script>
+
+<form id="pagerForm" action="{% url msgstatistic_index %}" method="post">
+	<input type="hidden" name="pageNum" value="{{ currentPage }}"/>
+	<input type="hidden" name="numPerPage" value="{{ numPerPage }}"/>
+	<input type="hidden" name="orderField" value="{{ orderField }}" />
+	<input type="hidden" name="orderDirection" value="{{ orderDirection }}" />
+</form>
+
+<script type="text/javascript">
+  	if(typeof(dwzinit)=='undefined') {
+		self.location="/"
+  	}
+</script>
+
+<div class="page">
+	<div class="pageHeader">
+		<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="{% url msgstatistic_index %}" method="post">
+		<div class="searchBar">
+			<table class="searchContent">
+				<tr>
+					<td>
+						<input type="hidden" name="numPerPage" value="{{ numPerPage }}" />
+						帐号：<input type="text" size="30" id="account" name="query" value="{{ query }}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						单位名称：<input type="text" size="30" name="company_name" value="{{ company_name }}" />
+					</td>
+					<td><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></td>
+				</tr>
+			</table>
+		</div>
+		</form>
+	</div>
+
+	<div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="add" href="{% url msgstatistic_add %}" target="dialog" mask="true" width="800" height="600" title="添加客户信息" rel="addreource"><span>新增</span></a></li>
+                <li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" postType="string" href="{% url msgstatistic_selecteddelete %}" class="delete"><span>批量删除</span></a></li>             
+                <li class="line">line</li>
+           	  	<li><a class="icon" href="{% url msgstatistic_uploadfile %}" target="dialog" mask="true" width="500" height="300" title="导入xls文件" rel="uploadfileresource"><span>导入XLS文件</span></a></li>
+			</ul>
+		</div>
+
+		<table class="table" width="100%" layoutH="116">
+			<thead>
+			<tr>
+				<th width="3%">				
+				<input type="checkbox" group="ids" class="checkboxCtrl">				
+				</th>
+				<th width="3%">序号</th>
+			{% ifequal orderDirection 'asc' %}
+				<th width="15%" orderField="account" class="asc">帐号</th>
+			{% else %}
+				<th width="15%" orderField="account" class="desc">帐号</th>
+			{% endifequal %}
+				<th width="10%">单位名称</th>
+				<th width="8%">法人电话</th>
+				<th width="8%">财务主管电话</th>
+				<th width="8%">经办人员电话</th>
+			{% ifequal orderDirection 'asc' %}
+				<th width="8%" orderField="annual_time" class="asc">年检日期</th>
+			{% else %}
+				<th width="8%" orderField="annual_time" class="desc">年检日期</th>
+			{% endifequal %}
+				<th width="12%">通信地址</th>
+				<th width="10%">备注</th>
+				<th width="8%">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+		   {% for msgstatistic in msgstatistics.object_list %}
+           <tr target="sid_group" rel="{{ msgstatistic.id }}">
+           <td><input name="ids" value="{{ msgstatistic.id }}" type="checkbox"></td>
+           <td>{{ numPerPage|append:currentPage|calculatelinenum:forloop.counter }}</td>
+           <td>{{ msgstatistic.account }}</td>
+           <td>{{ msgstatistic.company_name }}</td>
+           <td>{{ msgstatistic.legal_phone }}</td>
+           <td>{{ msgstatistic.finance_phone }}</td>
+           <td>{{ msgstatistic.handler_phone }}</td>
+           <td>{{ msgstatistic.annual_time|date:"Y-m-d" }}</td>
+           <td>{{ msgstatistic.address }}</td>
+           <td>{{ msgstatistic.desc }}</td>
+           <td>
+              <a class="btnedit" href="{% url msgstatistic_edit msgstatistic.id %}" target="dialog" mask="true"  width="800" height="600" rel="editresource" title="编辑"><span>编辑</span></a>
+              <a class="btndelete" href="{% url msgstatistic_delete msgstatistic.id %}" target="ajaxTodo"  rel="deleteres" title="您确定要删除该项吗？"><span>删除</span></a>
+           </td>
+           </tr>
+           {% endfor %}
+			</tbody>
+		</table>
+		<div class="panelBar">
+			<div class="pages">
+				<span>每页显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				{% include "common/select.html" %}
+				</select>
+				<span>条,共{{ msgstatistics.paginator.count }}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{{ msgstatistics.paginator.count }}" numPerPage="{{ msgstatistics.paginator.per_page }}" pageNumShown="10" currentPage="{{ currentPage }}"></div>
+		</div>
+		
+	</div>
+</div>
+

@@ -1,0 +1,230 @@
+﻿<script type="text/javascript">
+	function subForm(form){
+		var username = $("#username").val();
+		var password = $("#password").val();
+  		var confirmpwd = $("#confirmpwd").val();
+  		var email = $("#email").val();
+  		
+  		if(username == "") {
+  			alert("用户名不能为空！");
+  			return false;
+  		}
+  		if(password == "") {
+  			alert("密码不能为空！");
+  			return false;
+  		}
+  		if(confirmpwd == "") {
+  			alert("确认密码不能为空！");
+  			return false;
+  		}
+  		if(password != confirmpwd) {
+  			alert("密码与确认密码不一置！");
+  			return false;
+  		}
+  		if(email == "") {
+  			alert("邮箱地址不能为空！");
+  			return false;
+  		}
+		
+		
+	    var url = $(form).attr("action");
+	    jQuery.ajax({
+			type: 'POST',
+			url: url,
+			data: $(form).serializeArray(),
+			dataType: 'json',
+			async: false,
+			error:function() {
+			    //alert("请求失败");
+	   		},
+	   		success:function(data) {
+	   			//alert("请求成功");
+	   			//alert(dataresult['message']);
+	   			var statusCode = data.statusCode;
+				var url = data.url;
+				var message = data.message;
+				alert(message);
+				if (statusCode == 200){
+					window.location.href = url;
+				}
+		        return false;
+	   		}
+		});	
+		return false;
+	}
+	
+	//处理刷新页面，json字符串包含statusCode，url，message信息
+	function httpRedirect(data){
+		var statusCode = data.statusCode;
+		var url = data.url;
+		var message = data.message;
+		if (statusCode == 200){
+			httpRedirectAjax(url);
+		}
+		alert(message);
+	}
+	
+	//请求url，刷新请求页面
+	function httpRedirectAjax(url){
+	    jQuery.ajax({
+			type: 'GET',
+			url: url,
+			success: success,
+			error:error,
+			dataType: 'html',
+			async:false
+		});	
+		return false;
+	}
+	
+</script>
+
+{% load static %}
+</table><table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1003" height="154" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+      <tr>
+        <td width="82%" valign="top"><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+          <tr>
+            <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+              <tr>
+                <td width="12">&nbsp;</td>
+                <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">招标公告</span></a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="27" valign="top" class="padding10">&nbsp;</td>
+          </tr>
+        </table>
+        
+        {% include "tender/base_user.html" %}
+        
+</td>
+        <td width="18%" valign="top"><table width="747" height="313" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1">
+            <tr>
+              <td height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="13">&nbsp;</td>
+                    <td width="95" align="center" background="{% get_static_prefix %}js/tender/templates/default/images/loginbg.jpg" class="menu">用户注册</td>
+                    <td width="608" align="right" class="more">您当前的位置：<a href="/tender/">网站首页</a>&gt; 用户注册</td>
+                    <td width="29" align="right" class="more">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td height="207" valign="top" style="padding-top:5px;"><table width="100%" height="93" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td><table width="98%" height="61" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td height="40">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td height="274" align="center">
+                <!--being个人注册 -->
+                <form id="lazyForm" name="lazyForm" method="post" action="{% url accounts_register_test %}" onsubmit="return subForm(this);">{% csrf_token %}
+                  <table width="600" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <th width="124" height="40" align="right"><span>*</span> 用 户 名：</th>
+                      <td width="227" height="40" align="left"><input name="username" type="text" class="in-put" id="username" /></td>
+                      <td width="233" height="40" class="span-not"><span id="username_notice"></span></td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right"><span> *</span> 设置密码：</th>
+                      <td height="40" align="left"><input name="password" type="password" class="in-put" id="password" /></td>
+                      <td height="40" class="span-not"><span id="password_notice"></span></td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right"><span>* </span>确认密码：</th>
+                      <td height="40" align="left"><input name="confirmpwd" type="password" class="in-put" id="confirmpwd" /></td>
+                      <td height="40" class="span-not"><span id="confpass_notice"></span></td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right"><span>*</span> 邮箱地址：</th>
+                      <td height="40" align="left"><input name="email" type="text" class="in-put" id="email" /></td>
+                      <td height="40" class="span-not"><span id="email_notice"></span></td>
+                    </tr>
+                  </table>
+                  
+                  <table width="600" border="0" cellpadding="0" cellspacing="0" id="companyTb">
+                    <tr>
+                      <td height="40"  colspan="3" align="left"><h4 class="com_c">公司信息<em>&nbsp;</em></h4></td>
+                    </tr>
+                    <tr>
+                      <th width="119" height="40" align="right">* 公司名称：</th>
+                      <td width="236" height="40" align="left"><input name="company" type="text" class="in-put" id="company" /></td>
+                      <td width="229" height="40" align="left"><span id="ompanyname">* 注册成功后，不可修改！</span></td>
+                    </tr>
+                    <tr>
+                      <th width="119" height="40" align="right">* 公司产品：</th>
+                      <td width="236" height="40" align="left"><input name="product" type="text" class="in-put" id="product" /></td>
+                      <td height="40" align="left"><span id="comjxfw" ></span></td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right"><span> * </span>联 系 人：</th>
+                      <td height="40" align="left"><input name="contact_user" type="text" class="in-put w-e" id="contact_user" /></td>
+                      <td height="40" align="left" class="span-not"><span id="comContact" ></span></td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right">* 联系电话：</th>
+                      <td height="40" align="left"><input name="contact_tel" type="text" class="in-put w-e" id="contact_tel" /></td>
+                      <td height="40" align="left">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <th height="40" align="right">* 手机号码：</th>
+                      <td height="40" align="left"><input name="contact_phone" type="text" class="in-put w-e" id="contact_phone" /></td>
+                      <td height="40" align="left">&nbsp;</td>
+                    </tr>
+                  </table>
+                  <table width="600" border="0" cellpadding="0" cellspacing="0">                    
+                    <tr>
+                      <th width="121" height="40" align="right"><span> *</span> 验 证 码：</th>
+                      <td width="242" height="40" align="left">{{ form.captcha }}
+                        <script type="text/javascript">
+							$('.captcha').click(function(){ //点击图片刷新
+								var tmp = Math.random().toString();
+						    	$.get("?newsn=1&tmp="+tmp, function(result){
+						        	$('.captcha').attr("src", result);
+						        	$('#id_captcha_0').attr("value", result.split('/')[3]);
+						        });
+						    return false;
+						});
+						</script>
+					  </td>
+                      <td width="237" height="40" class="span-not"><span id="capCode"> </span></td>
+                    </tr>
+                    <tr>
+                      <th width="121" height="40">&nbsp;</th>
+                      <td height="40" colspan="2" align="left">
+					  <input name="tender_protocol" type="checkbox" checked="checked" />
+                      我接受中国电力招标与采购网用户服务协议</td>
+                    </tr>
+                    <tr>
+                      <th width="121" height="40">&nbsp;</th>
+                      <td width="242" height="40" align="left"><input type="submit" name="submit" value="立即注册"  class="button_qy" /></td>
+                      <td width="237" height="40">&nbsp;</td>
+                    </tr>
+                  </table>
+                </form>
+                <!--end个人注册 -->
+                <!-- begin企业注册 -->
+                <!-- end企业注册 -->				 </td>
+                    </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+          
+        </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+

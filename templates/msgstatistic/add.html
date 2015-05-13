@@ -1,0 +1,54 @@
+<div class="page">
+	<div class="pageContent">
+	<form method="post" action="{% url msgstatistic_add %}" class="pageForm required-validate" 
+		onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+		<input type="hidden" name="navTabId" value="msgstatisticindex"/>
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>帐号：</label>
+				<input type="text" class="required" size="30" name="account" value="" />
+			</div>
+			<div class="unit">
+				<label>单位名称：</label>
+				<input type="text" class="" size="30"  name="company_name" value="" />
+			</div>
+			<div class="unit">
+				<label>法人电话：</label>
+				<input type="text" size="30" class=""  name="legal_phone" value="" />
+			</div>
+			<div class="unit">
+				<label>财务主管电话：</label>
+				<input type="text" size="30" class=""  name="finance_phone" value="" />
+			</div>
+			<div class="unit">
+				<label>经办人员电话：</label>
+				<input type="text" size="30" class=""  name="handler_phone" value="" />
+			</div>
+			
+			<div class="unit">
+				<label>年检日期：</label>
+				<input type="text" name="annual_time" class="required date" size="30" format="yyyy-MM-dd" readonly="true" yearstart="-10" yearend="20" />
+				<a class="inputDateButton" href="javascript:;">选择</a>
+				<span class="info">yyyy-MM-dd</span>
+			</div>
+			
+			<div class="unit">
+				<label>通信地址：</label>
+				<input type="text" size="30"  name="address" value="" />
+			</div>
+            <div class="unit">
+				<label>备注：</label>
+				<textarea name="desc" rows="3" cols="57"></textarea>
+			</div>
+			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>

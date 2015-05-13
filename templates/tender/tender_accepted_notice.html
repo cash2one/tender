@@ -1,0 +1,542 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>招标公告_中国招投标采购网 专业在线招标采购信息服务平台</title>
+{% load static %}
+<meta name="keywords" content="中国招投标采购网  专业在线招标采购信息服务平台" />
+<meta name="description" content="中国招投标采购网专业在线招标采购信息服务平台
+在有关部门和财经权威专家的指导下，为配合《中华人民共和国招标投标法》、 《中华人民共和国政府采购法》的贯彻和实施，致力于架构招标、投标、采购领域的最佳资讯和交易网络体系，为各级政府采购、招标代理机构、 招标企业、供应商提供强大的专业招标采购查询和应用服务平台。" />
+<link href="{% get_static_prefix %}js/tender/templates/default/css/main.css" rel="stylesheet" type="text/css" /></head>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+  <tr>
+    <td height="201" align="center" valign="top"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1002" height="200">
+      <param name="movie" value="{% get_static_prefix %}js/tender/templates/default/dlbanner2.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="transparent" />
+      <embed src="{% get_static_prefix %}js/tender/templates/default/dlbanner2.swf" width="1002" height="200" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></embed>
+    </object></td>
+  </tr>
+  <tr>
+    <td><table width="1002" height="75" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="983" valign="top"><table width="1002" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="25%"  valign="top" background="{% get_static_prefix %}js/tender/templates/default/images/nav.png"><table width="98%" height="36" border="0" align="center" cellpadding="0" cellspacing="0" class="menu">
+                <tr>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_index %}">网站首页</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_notice %}">招标公告</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_accepted_notice %}">中标公告</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_change %}">招标变更</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_pretrial %}">预审公告</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_electric %}">电力项目</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_keystone %}">重点工程</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_policy %}">法规中心</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_document %}">标书下载</a></td>
+                  <td align="center" valign="top"><img src="{% get_static_prefix %}js/tender/templates/default/images/nav_line.jpg" width="2" height="36" /></td>
+                  <td align="center" style="padding-top:5px;"><a href="{% url tender_about %}">联系我们</a></td>
+                </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td height="70" background="{% get_static_prefix %}js/tender/templates/default/images/nav1.png"><table width="97%" height="57" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="73%" valign="middle">
+					
+					
+					
+<form id="form1" name="form1" method="get" action="search.php" style="margin:0px">
+  <span class="font1">项目搜索</span>
+  <input name="KeyName" type="text" id="KeyName" value="" size="25" />
+				&nbsp;&nbsp;
+				<select name="city" style="width:120px">
+					<option value="0">--地区--</option>
+										<option value="1" >&nbsp;北京&nbsp;</option>
+										<option value="2" >&nbsp;天津&nbsp;</option>
+										<option value="3" >&nbsp;上海&nbsp;</option>
+										<option value="4" >&nbsp;重庆&nbsp;</option>
+										<option value="5" >&nbsp;河北&nbsp;</option>
+										<option value="6" >&nbsp;山西&nbsp;</option>
+										<option value="7" >&nbsp;内蒙古&nbsp;</option>
+										<option value="8" >&nbsp;辽宁&nbsp;</option>
+										<option value="9" >&nbsp;吉林&nbsp;</option>
+										<option value="10" >&nbsp;黑龙江&nbsp;</option>
+										<option value="11" >&nbsp;江苏&nbsp;</option>
+										<option value="12" >&nbsp;浙江&nbsp;</option>
+										<option value="13" >&nbsp;安徽&nbsp;</option>
+										<option value="14" >&nbsp;福建&nbsp;</option>
+										<option value="15" >&nbsp;江西&nbsp;</option>
+										<option value="16" >&nbsp;山东&nbsp;</option>
+										<option value="17" >&nbsp;河南&nbsp;</option>
+										<option value="18" >&nbsp;湖北&nbsp;</option>
+										<option value="19" >&nbsp;湖南&nbsp;</option>
+										<option value="20" >&nbsp;广东&nbsp;</option>
+										<option value="21" >&nbsp;广西&nbsp;</option>
+										<option value="22" >&nbsp;海南&nbsp;</option>
+										<option value="23" >&nbsp;四川&nbsp;</option>
+										<option value="24" >&nbsp;贵州&nbsp;</option>
+										<option value="25" >&nbsp;云南&nbsp;</option>
+										<option value="26" >&nbsp;西藏&nbsp;</option>
+										<option value="27" >&nbsp;陕西&nbsp;</option>
+										<option value="28" >&nbsp;甘肃&nbsp;</option>
+										<option value="29" >&nbsp;青海&nbsp;</option>
+										<option value="30" >&nbsp;宁夏&nbsp;</option>
+										<option value="31" >&nbsp;新疆&nbsp;</option>
+										<option value="32" >&nbsp;香港&nbsp;</option>
+										<option value="33" >&nbsp;澳门&nbsp;</option>
+										<option value="34" >&nbsp;台湾省&nbsp;</option>
+										<option value="35" >&nbsp;海南&nbsp;</option>
+									</select>&nbsp;&nbsp;
+				  <select name="SetDay" style="width:120px">
+					<option value="30">近一月</option>
+					<option value="1" >近一天</option>
+					<option value="7" >近一周</option>
+					<option value="365" selected>近一年</option>
+				  </select>&nbsp;&nbsp;
+                   <input name="Submit2" type="submit" class="serach" value=" " />
+                   </form>					
+					</td>
+                    <td width="27%" rowspan="2" align="center" valign="middle"><img src="{% get_static_prefix %}js/tender/templates/default/images/gz.jpg" width="246" height="59" /></td>
+                  </tr>
+                  <tr>
+                    <td><table width="709" height="25" border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td width="85"><strong>热门关键字</strong>：</td>
+                          <td width="581"><div style="width:580px; height:13px;overflow:hidden;"><a href='search.php?KeyName=%B1%E4%D1%B9%C6%F7'>变压器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%EB%D0%C4%B1%C3'>离心泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C1%F7%BB%AF%B4%B2'>流化床</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CC%AB%D1%F4%C4%DC'>太阳能</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B0%E5%CA%BD%BB%BB%C8%C8%C6%F7'>板式换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%C6%CB%E9%BB%FA'>破碎机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%C9%C3%BA%BB%FA'>采煤机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%AA%D4%D8%BB%FA'>转载机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%BA%B4%F8%BB%FA'>胶带机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%A4%B4%F8%BB%FA'>皮带机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%D7%D3%C6%A4%B4%F8%B3%D3'>电子皮带秤</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C1%F2%BB%AF%BB%FA'>硫化机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%CE%B0%E5%BB%FA'>刮板机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%F1%B6%AF%C9%B8'>振动筛</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%E0%B2%E2%CF%B5%CD%B3'>监测系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D2%BA%D1%B9%D5%BE'>液压站</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D2%BA%D1%B9%D6%A7%BC%DC'>液压支架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D4%FC%BD%AC%B1%C3'>渣浆泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CF%FB%B7%C0%CF%B5%CD%B3'>消防系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%D4%D0%B6%B3%B5'>自卸车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D0%B6%C1%CF%D0%A1%B3%B5'>卸料小车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%E9%BB%AF%B1%C3%D5%BE'>乳化泵站</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C4%E0%BD%AC%B1%C3'>泥浆泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%F5%B3%B5'>吊车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C2%B7%C7%C5%B9%A4%B3%CC'>路桥工程</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%EC%B5%C0'>轨道</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%B0%D4%D8%BB%FA'>装载机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%C0%C2'>电缆</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%FB%B3%B5%BA%E2'>汽车衡</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C4%FD%C6%F7'>冷凝器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CC%FA%CB%FE'>铁塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%F8%C2%AF'>锅炉</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%BB%C8%C8%C6%F7'>换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%CC%DD'>电梯</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%E6%BF%D5%B1%C3'>真空泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D6%B9%BB%D8%B7%A7'>止回阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B1%E4%CB%CD%C6%F7'>变送器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%D6%CB%BF%C9%FE'>钢丝绳</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%F5%CB%F7%BE%DF'>吊索具</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%DF%BF%D5%D7%F7%D2%B5%B3%B5'>高空作业车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D6%A7%BC%DC'>支架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B6%AF%BA%F9%C2%AB'>电动葫芦</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%F7%CB%AE%B3%B5'>洒水车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%FA%B4%B2'>机床</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%F5%CB%D9%BB%FA'>减速机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C7%B1%CB%AE%B1%C3'>潜水泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B6%AF%BB%FA'>电动机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%D8%D6%B9%B7%A7'>截止阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B0%B2%C8%AB%B7%A7'>安全阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C8%B4%CB%FE'>冷却塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B7%A7%C3%C5'>阀门</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%F0%D6%D8%BB%FA'>起重机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA'>辅机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%FD%C2%CB%C6%F7'>过滤器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%FB%C2%D6%BB%FA'>汽轮机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B4%C5%B7%A7'>电磁阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%F1%D3%CD%B7%A2%B5%E7%BB%FA%D7%E9'>柴油发电机组</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D5%B5%F7%CF%B5%CD%B3'>空调系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B4%AB%B8%D0%C6%F7'>传感器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName='></a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%C1%B0%E8%C6%F7'>搅拌器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D5%B5%F7%BB%FA'>空调机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D8%D6%C6%B9%F1'>控制柜</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%BB%C8%C8%C6%F7'>换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C8%B4%CB%FE'>冷却塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%C0%C2%C7%C5%BC%DC'>电缆桥架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%CC%B5%E7%B1%A3%BB%A4'>继电保护</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA'>辅机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%FD%C2%CB%C6%F7'>过滤器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B4%C5%B7%A7'>电磁阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%DD%C6%F7'>容器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%F1%D3%CD%B7%A2%B5%E7%BB%FA%D7%E9'>柴油发电机组</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA%C9%E8%B1%B8'>辅机设备</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C5%E4%B5%E7%B9%F1'>配电柜</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CB%AE%B5%E7%B0%B2%D7%B0'>水电安装</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%A2%C3%C5'>闸门</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B7%A8%C0%BC'>法兰</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D0%EE%B5%E7%B3%D8'>蓄电池</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B1%A8%BE%AF%CF%B5%CD%B3'>报警系统</a><span style='color:#999999;margin:0px 3px'>|</span></div></td>
+                          <td width="43">更多&gt;&gt;</td>
+                        </tr>
+                      </table>
+                      </td>
+                    </tr>
+              </table></td>
+            </tr>
+        </table></td>
+        </tr>
+    </table></td>
+  </tr>
+</table><table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1003" height="154" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+      <tr>
+        <td width="82%" valign="top"><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+          <tr>
+            <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+              <tr>
+                <td width="12">&nbsp;</td>
+                <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">相关栏目</span></a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="27" valign="top" class="padding10"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+                <tr>
+                  <td>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='article.php?cat_id=11' class=menu>招标公告</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='article.php?cat_id=12' class=menu>招标预告</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='article.php?cat_id=13' class=menu>中标公告</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='article.php?cat_id=14' class=menu>国际招标</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='article.php?cat_id=15' class=menu>招投标知识</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  
+                    </td>
+                </tr>
+                
+            </table></td>
+          </tr>
+        </table>
+          <table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+            <tr>
+              <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">招标热点</span></a></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td height="27" valign="top" class="padding10"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="line-height:22px;text-align:justify; text-justify:inter-ideograph"><a href='search.php?KeyName=%B1%E4%D1%B9%C6%F7'>变压器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%EB%D0%C4%B1%C3'>离心泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C1%F7%BB%AF%B4%B2'>流化床</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CC%AB%D1%F4%C4%DC'>太阳能</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B0%E5%CA%BD%BB%BB%C8%C8%C6%F7'>板式换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%C6%CB%E9%BB%FA'>破碎机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%C9%C3%BA%BB%FA'>采煤机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%AA%D4%D8%BB%FA'>转载机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%BA%B4%F8%BB%FA'>胶带机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%A4%B4%F8%BB%FA'>皮带机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%D7%D3%C6%A4%B4%F8%B3%D3'>电子皮带秤</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C1%F2%BB%AF%BB%FA'>硫化机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%CE%B0%E5%BB%FA'>刮板机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%F1%B6%AF%C9%B8'>振动筛</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%E0%B2%E2%CF%B5%CD%B3'>监测系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D2%BA%D1%B9%D5%BE'>液压站</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D2%BA%D1%B9%D6%A7%BC%DC'>液压支架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D4%FC%BD%AC%B1%C3'>渣浆泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CF%FB%B7%C0%CF%B5%CD%B3'>消防系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%D4%D0%B6%B3%B5'>自卸车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D0%B6%C1%CF%D0%A1%B3%B5'>卸料小车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%E9%BB%AF%B1%C3%D5%BE'>乳化泵站</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C4%E0%BD%AC%B1%C3'>泥浆泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%F5%B3%B5'>吊车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C2%B7%C7%C5%B9%A4%B3%CC'>路桥工程</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%EC%B5%C0'>轨道</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D7%B0%D4%D8%BB%FA'>装载机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%C0%C2'>电缆</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%FB%B3%B5%BA%E2'>汽车衡</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C4%FD%C6%F7'>冷凝器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CC%FA%CB%FE'>铁塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%F8%C2%AF'>锅炉</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%BB%C8%C8%C6%F7'>换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%CC%DD'>电梯</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%E6%BF%D5%B1%C3'>真空泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D6%B9%BB%D8%B7%A7'>止回阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B1%E4%CB%CD%C6%F7'>变送器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%D6%CB%BF%C9%FE'>钢丝绳</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%F5%CB%F7%BE%DF'>吊索具</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%DF%BF%D5%D7%F7%D2%B5%B3%B5'>高空作业车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D6%A7%BC%DC'>支架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B6%AF%BA%F9%C2%AB'>电动葫芦</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%F7%CB%AE%B3%B5'>洒水车</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%FA%B4%B2'>机床</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%F5%CB%D9%BB%FA'>减速机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C7%B1%CB%AE%B1%C3'>潜水泵</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B6%AF%BB%FA'>电动机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%D8%D6%B9%B7%A7'>截止阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B0%B2%C8%AB%B7%A7'>安全阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C8%B4%CB%FE'>冷却塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B7%A7%C3%C5'>阀门</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%F0%D6%D8%BB%FA'>起重机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA'>辅机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%FD%C2%CB%C6%F7'>过滤器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C6%FB%C2%D6%BB%FA'>汽轮机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B4%C5%B7%A7'>电磁阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%F1%D3%CD%B7%A2%B5%E7%BB%FA%D7%E9'>柴油发电机组</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D1%B9%CB%F5%BB%FA'>压缩机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D5%B5%F7%CF%B5%CD%B3'>空调系统</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B4%AB%B8%D0%C6%F7'>传感器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName='></a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BD%C1%B0%E8%C6%F7'>搅拌器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D5%B5%F7%BB%FA'>空调机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BF%D8%D6%C6%B9%F1'>控制柜</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BB%BB%C8%C8%C6%F7'>换热器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C0%E4%C8%B4%CB%FE'>冷却塔</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%C0%C2%C7%C5%BC%DC'>电缆桥架</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%BC%CC%B5%E7%B1%A3%BB%A4'>继电保护</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA'>辅机</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B9%FD%C2%CB%C6%F7'>过滤器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B5%E7%B4%C5%B7%A7'>电磁阀</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C8%DD%C6%F7'>容器</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B2%F1%D3%CD%B7%A2%B5%E7%BB%FA%D7%E9'>柴油发电机组</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B8%A8%BB%FA%C9%E8%B1%B8'>辅机设备</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%C5%E4%B5%E7%B9%F1'>配电柜</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%CB%AE%B5%E7%B0%B2%D7%B0'>水电安装</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D5%A2%C3%C5'>闸门</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B7%A8%C0%BC'>法兰</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%D0%EE%B5%E7%B3%D8'>蓄电池</a><span style='color:#999999;margin:0px 3px'>|</span><a href='search.php?KeyName=%B1%A8%BE%AF%CF%B5%CD%B3'>报警系统</a><span style='color:#999999;margin:0px 3px'>|</span></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+          <table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1">
+          <tr>
+            <td width="375" height="27" valign="top"><table width="100%" height="35" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+              <tr>
+                <td width="6">&nbsp;</td>
+                <td align="center" class="menu"><table width="117" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/bg3.jpg">
+                    <tr>
+                      <td align="center">供应商会员登陆</td>
+                    </tr>
+                </table></td>
+                <td width="116" align="right" class="more">&nbsp;</td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="27" valign="top" class="padding10">
+			
+			
+			<table width="95%" height="90" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+              <form method="post" name="loginbox" action="user.php" onSubmit="return checkform();">
+			  <tr>
+                <td width="26%" height="20">用户名：                </td>
+                <td width="74%" height="20"><input name="username" type="text" id="username" size="20"  class="logininput"></td>
+			  </tr>
+              <tr>
+                <td height="20">密&nbsp;&nbsp;码：                </td>
+                <td height="20"><input name="password" type="password" id="password" size="20" class="logininput"></td>
+              </tr>
+              <tr>
+                <td height="20" align="center">&nbsp;</td>
+                <td height="20" align="left"><input name="Submit22" type="submit" class="login" value=" " />
+                  &nbsp;
+                  <input name="Submit" type="button" class="quxiao" value=" " onclick="location.href='user.php?act=register'"></td>
+              </tr>
+              </form>
+            </table>
+			              <table width="95%" height="141" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center"><table width="213" border="0" cellpadding="0" cellspacing="3">
+                      <tr>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">项目运作支持</td>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">邀标推荐入围</td>
+                      </tr>
+                      <tr>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">邮件定制</td>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">竞争对手监控</td>
+                      </tr>
+                      <tr>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">监控最新招标</td>
+                        <td width="102" height="28" background="{% get_static_prefix %}js/tender/templates/default/images/fb5.jpg" style="padding-left:20px; color:#FFFFFF">优先进入预选</td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td><table width="96%" height="67" border="0" align="center" cellpadding="0" cellspacing="0" style="line-height:20px;">
+                    <tr>
+                      <td height="60"><strong>入会咨询</strong>：86-010-87674470 <br />
+                          <strong>客服电话</strong>：86-010-87677958 <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13521175562 </td>
+                    </tr>
+                  </table></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+</td>
+        <td width="18%" valign="top" class="bor1"><table width="747" height="313" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="745" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="116" align="center" background="{% get_static_prefix %}js/tender/templates/default/images/loginbg.jpg" class="menu">中标公告</td>
+                    <td width="587" align="right" class="more">您当前的位置：<a href="index.php">网站首页</a>&gt; 中标公告</td>
+                    <td width="30" align="right" class="more">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td height="207" align="center" valign="top" style="padding-top:5px;">
+				<table width="98%" border="0" cellspacing="0" cellpadding="0" class="xuxian">
+					<tr style="font-size:13px">
+					    <td width="10" height="30" align="left" bgcolor="#F4FBFA">&nbsp;</td>
+						<td width="109" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>编号</strong></td>
+						<td width="0" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>信息名称</strong></td>
+					    <td width="50" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>城市</strong></td>
+												<td width="120" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>日期时间</strong></td>
+					</tr>
+					 					<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130603151443104</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=77313' title="广西壮族自治区六寨至河池高速公路车辆设备采购招标评标结果公示">广西壮族自治区六寨至河池高速公路车辆设备采购招标评标结果公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">广西</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-06-03 15:14:43</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130602154853163</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76920' title="开滦集团2013年第一批物资螺旋钻采煤机采购招标中标公告">开滦集团2013年第一批物资螺旋钻采煤机采购招标中标公告</a></td>
+					  <td width="50" height="26" align="left" class="text12">河北</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-06-02 15:48:53</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130601092142172</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76898' title="浙江省新华医院病案室密集架评标结果公示">浙江省新华医院病案室密集架评标结果公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">浙江</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-31 09:21:42</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130531134444145</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76656' title="西乡塘区拆迁安置小区（金水湾花园）专变工程发电机组和低压母线槽采购成交结果公告">西乡塘区拆迁安置小区（金水湾花园）专变工程发电机组和低压母..</a></td>
+					  <td width="50" height="26" align="left" class="text12">广西</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-31 13:44:44</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130531134348116</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76652' title="中国移动湖南公司2013年度密集型封闭式母线槽招标公告_中标公示">中国移动湖南公司2013年度密集型封闭式母线槽招标公告_中标公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">上海</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-31 13:43:48</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130531100758132</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76529' title="德惠市人民政府防汛抗旱指挥部办公室潜水电泵、柴油发电机、电缆线采购项目预中标公告">德惠市人民政府防汛抗旱指挥部办公室潜水电泵、柴油发电机、电..</a></td>
+					  <td width="50" height="26" align="left" class="text12">吉林</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-31 10:07:58</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530155510171</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76155' title="北京农业职业学院高职部图书馆密集架购置中标公告">北京农业职业学院高职部图书馆密集架购置中标公告</a></td>
+					  <td width="50" height="26" align="left" class="text12">北京</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 15:55:10</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530151132163</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76120' title="临港经济区经三路以西、纬九路以南地块软基处理工程项目中标公示">临港经济区经三路以西、纬九路以南地块软基处理工程项目中标公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">天津</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 15:11:32</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530145821117</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76107' title="玉溪市城市生活垃圾综合处理厂填埋库区防渗膜（土工布）上压废轮胎固定、监测井等工程">玉溪市城市生活垃圾综合处理厂填埋库区防渗膜（土工布）上压废..</a></td>
+					  <td width="50" height="26" align="left" class="text12">云南</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 14:58:21</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530122300117</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=76007' title="关于杭锦旗供电有限责任公司创业区110KV变电站工程设备单一来源采购的情况公示">关于杭锦旗供电有限责任公司创业区110KV变电站工程设备单一来源..</a></td>
+					  <td width="50" height="26" align="left" class="text12">内蒙古</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 12:23:00</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530100845134</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=75814' title="盛天巴里坤三塘湖风电场一期 48MW 工程风力发电机组、塔筒及箱变安装项目">盛天巴里坤三塘湖风电场一期 48MW 工程风力发电机组、塔筒及箱..</a></td>
+					  <td width="50" height="26" align="left" class="text12">新疆</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 10:08:45</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130530093940157</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=75760' title="宏达公司电磁除铁器采购中标公告">宏达公司电磁除铁器采购中标公告</a></td>
+					  <td width="50" height="26" align="left" class="text12">甘肃</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-30 09:39:40</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528111923114</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74651' title="玻璃钢管、热浸塑钢管、PE管等中标公示">玻璃钢管、热浸塑钢管、PE管等中标公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">山西</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 11:19:23</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528110256155</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74628' title="云南电网公司昆明供电局经典地产经典双城（A、C地块）10kV配电工程电缆桥架、0.4kV低压封闭母线采购项目招标中标候选公示">云南电网公司昆明供电局经典地产经典双城（A、C地块）10kV配电..</a></td>
+					  <td width="50" height="26" align="left" class="text12">云南</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 11:02:56</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528110243162</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74626' title="云南电网公司昆明供电局兆新城地产中天融域1、6号地10kV配电工程电缆桥架、0.4kV低压封闭母线采购项目招标中标候选公示">云南电网公司昆明供电局兆新城地产中天融域1、6号地10kV配电工..</a></td>
+					  <td width="50" height="26" align="left" class="text12">云南</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 11:02:43</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528105238122</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74619' title="兴隆地产马军场城中村改造项目10kV配电工程封闭母线、电缆桥架设备采购中标公示">兴隆地产马军场城中村改造项目10kV配电工程封闭母线、电缆桥架..</a></td>
+					  <td width="50" height="26" align="left" class="text12">云南</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 10:52:38</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528100006188</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74547' title="国投北部湾发电有限公司磨煤机钢球采购项目中标候选人公示">国投北部湾发电有限公司磨煤机钢球采购项目中标候选人公示</a></td>
+					  <td width="50" height="26" align="left" class="text12">广西</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 10:00:06</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528093052160</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74510' title="云南电网公司昆明供电局万通地产高新区前所村城中村改造联邦国际A4地块10kV配电工程电缆桥架、0.4kV低压封闭母线采购项目中标候选人公示">云南电网公司昆明供电局万通地产高新区前所村城中村改造联邦国..</a></td>
+					  <td width="50" height="26" align="left" class="text12">云南</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 09:30:52</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130528091200106</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74478' title="风雨操场看台座椅、活动看台、PVC地板、运动木地板采购及安装项目中标公示">风雨操场看台座椅、活动看台、PVC地板、运动木地板采购及安装项..</a></td>
+					  <td width="50" height="26" align="left" class="text12">安徽</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-28 09:12:00</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+										<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">130527163931191</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='display.php?id=74216' title="PE热缩膜采购结果公告">PE热缩膜采购结果公告</a></td>
+					  <td width="50" height="26" align="left" class="text12">福建</td>
+					  					  <td width="120" height="26" align="left" class="text12">2013-05-27 16:39:31</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+						
+				</table>
+								
+                <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:5px 0px">
+                  <tr>
+                    <td width="3%" height="26" align="right" bgcolor="#F4FBFA">共1482条记录 当前1/75页 <a href="article.php?cat_id=13">首页</a> <a href="article.php?cat_id=13&page=0">上一页</a> <a href="article.php?cat_id=13&page=2">下一页</a> <a href="article.php?cat_id=13&page=75">尾页</a>&nbsp;&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<table width="1003" height="119" border="0" align="center" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/bottom.jpg">
+  <tr>
+    <td height="38" align="center" class="foot1"><a href="#">首页 | 招标公告 | 招标变更 | 预审公告 | 电力项目 | 重点工程 | 法规中心 | 标书下载</a></td>
+  </tr>
+  <tr>
+    <td height="130" align="center" class="foot"><P>Copyright&copy;2005-2013 中华人民共和国电信与信息服务业务经营许可证 京ICP证12022462号　 <BR>你对我们的网站有任何意见或疑问都可 E-mail:bjzbzc@126.com 公告免费发布热线 :86-010-57250992</P>
+<P>发布邮箱：chinazbcgou@126.com　本站网络实名/通用网址：中国招投标采购网　<BR>&nbsp;&nbsp;&nbsp;&nbsp;<IMG style="FILTER: ; WIDTH: 35px; HEIGHT: 44px" border=0 hspace=0 alt=华电招标网 align=absMiddle src="{% get_static_prefix %}js/tender/templates/default/images/xx2.gif" width=35 height=44></P></td>
+  </tr>
+</table></body>
+</html>
+

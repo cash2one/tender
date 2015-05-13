@@ -1,0 +1,20 @@
+<div class="page">
+	<div class="pageContent">
+	
+		<form method="post" action="{% url upload_file %}" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, dialogAjaxDone)">
+		{% csrf_token %}
+			<div class="pageFormContent" layoutH="56">
+				<p>
+					<label>请选择上传文件：</label>
+					<input name="file" type="file" />
+				</p>
+			</div>
+			<div class="formBar">
+				<ul>
+					<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+					<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+</div>

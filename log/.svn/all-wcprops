@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/cmdb_2/!svn/ver/179/trunk/confmgr/log
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/cmdb_2/!svn/ver/179/trunk/confmgr/log/views.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/log/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/cmdb_2/!svn/ver/7/trunk/confmgr/log/tests.py
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/cmdb_2/!svn/ver/84/trunk/confmgr/log/models.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/cmdb_2/!svn/ver/90/trunk/confmgr/log/urls.py
+END

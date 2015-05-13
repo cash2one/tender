@@ -1,0 +1,68 @@
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;background-color:white">
+	<div class="panelBar">
+		<ul class="toolBar">
+			<li><a class="edit" href="{% url accounts_edit user.id %}" target="dialog" mask="true" width="800" height="600" title="修改" rel="editreource"><span>修改</span></a></li>
+		</ul>
+	</div>
+	<div class="pageFormContent" layoutH="74">
+		<p>
+			<label>用户名称：</label>
+			<input type="text" size="30"  name="username" value="{{ user.username }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>邮箱地址：</label>
+			<input type="text" size="30"  name="email" value="{{ user.email }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>用户类型：</label>
+			<input size="30" name="user_type" type="text" readonly="readonly" 
+					{% for key,value in account_usertype_dict.items %}
+						{% ifequal user.userprofile.user_type key %}
+							value="{{ value }}" 
+						{% endifequal %}
+					{% endfor %}
+			/>
+			
+		</p>
+		<p>
+			<label>公司名称：</label>
+			<input type="text" size="30"  name="company" value="{{ user.userprofile.company }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>公司产品：</label>
+			<input type="text" size="30"  name="product" value="{{ user.userprofile.product }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>联系人：</label>
+			<input type="text" size="30"  name="contact_user" value="{{ user.userprofile.contact_user }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>联系电话：</label>
+			<input type="text" size="30"  name="contact_tel" value="{{ user.userprofile.contact_tel }}" readonly="readonly" />
+		</p>
+		<p>
+			<label>手机号码：</label>
+			<input type="text" size="30"  name="contact_phone" value="{{ user.userprofile.contact_phone}}" readonly="readonly" />
+		</p>
+		<p>
+			<label>创建时间：</label>
+			<input type="text" readonly="readonly" size="30"  name="date_joined" value="{{ user.date_joined|date:'Y-m-d H:i:s' }}" />
+		</p>
+		<p>
+			<label>最后一次登录时间：</label>
+			<input type="text" readonly="readonly" size="30"  name="last_login" value="{{ user.last_login|date:'Y-m-d H:i:s' }}" />
+		</p>
+	</div>
+	
+	<div class="panelBar">
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+

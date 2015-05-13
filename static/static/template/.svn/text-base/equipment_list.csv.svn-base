@@ -1,0 +1,1 @@
+﻿elementid,rackid,element_type,manufacture,model,sequence,service_no,buy_time,deadline,status(0:备用，1：使用，2：报废，3：报修，4：修理，5：闲置),height,department

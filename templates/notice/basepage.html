@@ -1,0 +1,120 @@
+<form id="pagerForm" action="{% url notice_index %}" method="post">
+	<input type="hidden" name="pageNum" value="{{ currentPage }}"/>
+	<input type="hidden" name="numPerPage" value="{{ numPerPage }}" />
+	<input type="hidden" name="orderField" value="{{ orderField }}" />
+	<input type="hidden" name="orderDirection" value="{{ orderDirection }}" />
+</form>
+
+<script type="text/javascript">
+  	if(typeof(dwzinit)=='undefined') {
+		self.location="/"
+  	}
+</script>
+
+<div class="page">
+	<div class="pageHeader">
+		<form rel="pagerForm" onsubmit="return navTabSearch(this);" action="{% url notice_index %}" method="post">
+		<div class="searchBar">
+			<table class="searchContent">
+				<tr>
+					<td>
+						<input type="hidden" name="numPerPage" value="{{ numPerPage }}" />
+						公告编号：<input type="text" name="query" value="{{ query }}" />&nbsp;&nbsp;&nbsp;
+						公告名称：<input type="text" name="notice_name" value="{{ notice_name }}" />
+					</td>
+					<td><div class="buttonActive"><div class="buttonContent"><button type="submit">检索</button></div></div></td>
+				</tr>
+			</table>
+		</div>
+		</form>
+	</div>
+
+	  <div class="pageContent">
+		<div class="panelBar">
+			<ul class="toolBar">
+				<li><a class="add" href="{% url notice_add %}" target="dialog" mask="true" width="900" height="600" title="添加公告" rel="addreource"><span>新增</span></a></li>
+                <li><a title="确实要删除这些记录吗?" target="selectedTodo" rel="ids" postType="string" href="{% url notice_selecteddelete %}" class="delete"><span>批量删除</span></a></li>             
+			</ul>
+		</div>
+		<table class="table" width="100%" layoutH="116">
+			<thead>
+			<tr>
+				<th width="2%">
+				<input type="checkbox" group="ids" class="checkboxCtrl">
+				</th>
+				<th width="3%">序号</th>
+			{% ifequal orderDirection 'asc' %}
+				<th width="10%" orderField="noticeid" class="asc">公告编号</th>
+			{% else %}
+				<th width="10%" orderField="noticeid" class="desc">公告编号</th>
+			{% endifequal %}
+				<th width="30%">公告名称</th>
+				<th width="8%">所属地区</th>
+			{% ifequal orderDirection 'asc' %}
+				<th width="10%" orderField="notice_type" class="asc">公告类型</th>
+			{% else %}
+				<th width="10%" orderField="notice_type" class="desc">公告类型</th>
+			{% endifequal %}
+				<th width="10%">是否对外公布</th>
+				<th width="10%">备注</th>
+			{% ifequal orderDirection 'asc' %}
+				<th width="12%" orderField="release_time" class="asc">发布日期</th>
+			{% else %}
+				<th width="12%" orderField="release_time" class="desc">发布日期</th>
+			{% endifequal %}
+				<th width="10%">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+		   {% for notice in notices.object_list %}
+           <tr target="sid_group" rel="{{ notice.id }}">
+           <td><input name="ids" value="{{ notice.id }}" type="checkbox"></td>
+           <td>{{ numPerPage|append:currentPage|calculatelinenum:forloop.counter }}</td>
+           <td>{{ notice.noticeid }}</td>
+           <td>{{ notice.notice_name }}</td>
+           <td>
+           		{% for key,value in notice_area_dict.items %}
+					{% ifequal notice.notice_area key %}
+							{{ value }}
+					{% endifequal %}
+				{% endfor %}
+           </td>
+           <td>
+           		{% for key,value in notice_type_dict.items %}
+					{% ifequal notice.notice_type key %}
+							{{ value }}
+					{% endifequal %}
+				{% endfor %}
+           </td>
+           <td>
+           		{% ifequal notice.flag 0 %}
+           			是
+           		{% else %}
+           			否
+           		{% endifequal %}
+           </td>
+           <td>{{ notice.desc }}</td>
+           <td>{{ notice.release_time|date:'Y-m-d H:i:s' }}</td>
+           <td>
+              <a class="btnedit" href="{% url notice_edit notice.id %}" target="dialog" mask="true"  width="800" height="600" rel="editresource" title="编辑"><span>编辑</span></a>
+              <a class="btndelete" href="{% url notice_delete notice.id %}" target="ajaxTodo"  rel="deleteres" title="您确定要删除该项吗？"><span>删除</span></a>
+           </td>
+           </tr>
+           {% endfor %}
+			</tbody>
+		</table>
+		<div class="panelBar">
+			<div class="pages">
+				<span>每页显示</span>
+				<select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+				{% include "common/select.html" %}
+				</select>
+				<span>条,共{{ notices.paginator.count }}条</span>
+			</div>
+			<div class="pagination" targetType="navTab" totalCount="{{ notices.paginator.count }}" numPerPage="{{ notices.paginator.per_page }}" pageNumShown="10" currentPage="{{ currentPage }}"></div>
+		</div>
+				
+	</div>
+	
+</div>
+

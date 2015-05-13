@@ -1,0 +1,166 @@
+﻿{% load static %}
+</table><table width="1003" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1003" height="154" border="0" align="center" cellpadding="0" cellspacing="0" class="margin">
+      <tr>
+        <td width="82%" valign="top"><table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+          <tr>
+            <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+              <tr>
+                <td width="12">&nbsp;</td>
+                <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">相关栏目</span></a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td height="27" valign="top" class="padding10"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+
+                <tr>
+                  <td>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='/common/tender_index/7/1' class=menu>政策法规</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='/common/tender_index/7/1' class=menu>铁路矿山项目</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='/common/tender_index/7/1' class=menu>专业杂志</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  <table width="210" border="0" cellpadding="0" cellspacing="0" class="margin">
+                    <tr>
+                      <td width="21"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy1.jpg" width="21" height="28" /></td>
+                      <td width="182" background="{% get_static_prefix %}js/tender/templates/default/images/zy2.jpg"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td width="5%">&nbsp;</td>
+                          <td width="95%"><strong><a href='/common/tender_index/4/1' class=menu>预审公告</a></strong></td>
+                        </tr>
+                      </table></td>
+                      <td width="6"><img src="{% get_static_prefix %}js/tender/templates/default/images/zy3.jpg" width="7" height="28" /></td>
+                    </tr>
+                  </table>
+				  				  
+                    </td>
+                </tr>
+                
+            </table></td>
+          </tr>
+        </table>
+          <table width="250" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" class="bor1 margin">
+            <tr>
+              <td width="375" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="351" align="left"><a href="#"><img src="{% get_static_prefix %}js/tender/templates/default/images/icon.jpg" width="14" height="11" /> <span class="font1">招标热点</span></a></td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td height="27" valign="top" class="padding10"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                  	<td style="line-height:22px;text-align:justify; text-justify:inter-ideograph">
+                    {% for hotspot in hotspots %}
+                    	<a href='/common/tender_index/12/1/?KeyName={{ hotspot.hotspot_name }}'>{{ hotspot.hotspot_name }}</a><span style='color:#999999;margin:0px 3px'>|</span>
+                    {% endfor %}
+                    </td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+          
+          {% include "tender/base_user.html" %}
+          
+</td>
+        <td width="18%" valign="top" class="bor1"><table width="747" height="313" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="745" height="27" valign="top"><table width="100%" height="32" border="0" cellpadding="0" cellspacing="0" background="{% get_static_prefix %}js/tender/templates/default/images/newbg.jpg">
+                  <tr>
+                    <td width="12">&nbsp;</td>
+                    <td width="116" align="center" background="{% get_static_prefix %}js/tender/templates/default/images/loginbg.jpg" class="menu">预审公告</td>
+                    <td width="587" align="right" class="more">您当前的位置：<a href="/tender/">网站首页</a>&gt; 预审公告</td>
+                    <td width="30" align="right" class="more">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td height="207" align="center" valign="top" style="padding-top:5px;">
+              <form id="pagerForm" action="" method="post">
+				<table width="98%" border="0" cellspacing="0" cellpadding="0" class="xuxian">
+					<tr style="font-size:13px">
+					    <td width="10" height="30" align="left" bgcolor="#F4FBFA">&nbsp;</td>
+						<td width="109" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>编号</strong></td>
+						<td width="0" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>信息名称</strong></td>
+					    <td width="50" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>城市</strong></td>
+												<td width="120" height="30" align="left" bgcolor="#F4FBFA" class="text12"><strong>日期时间</strong></td>
+					</tr>
+					
+					{% for notice in notices.object_list %}
+					<tr>
+					  <td width="10" height="26" align="left">&nbsp;</td>
+					  <td width="109" height="26" align="left" class="text12">{{ notice.noticeid }}</td>
+				      <td width="0" height="26" align="left" class="text12"><a target='_blank'href='{% url tender_detail notice.id %}' title="{{ notice.notice_name }}">{{ notice.notice_name }}</a></td>
+					  <td width="50" height="26" align="left" class="text12">
+					  	{% for key,value in notice_area_dict.items %}
+							{% ifequal notice.notice_area key %}
+								{{ value }}
+							{% endifequal %}
+						{% endfor %}
+					  </td>
+					  <td width="120" height="26" align="left" class="text12">{{ notice.release_time|date:'Y-m-d H:i:s' }}</td>
+					</tr>
+					<tr>
+					  <td height="1" colspan="7" align="left" style="border-bottom:#F7F7F7 1px solid"></td>
+				    </tr>
+		           	{% endfor %}
+		           	
+		           	<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:5px 0px">
+	                  <tr>
+	                    <td width="3%" height="26" align="right" bgcolor="#F4FBFA">共{{ notices.paginator.count }}条记录 当前{{ currentPage }}/{{ notices.paginator.num_pages }}页 
+		                    <a href="" onclick="javascript: changeURL(this, 4, 'first', {{ currentPage }}, {{ notices.paginator.num_pages }});">首页</a> 
+		                    <a href="" onclick="javascript: changeURL(this, 4, 'previous', {{ currentPage }}, {{ notices.paginator.num_pages }});">上一页</a> 
+		                    <a href="" onclick="javascript: changeURL(this, 4, 'next', {{ currentPage }}, {{ notices.paginator.num_pages }});">下一页</a> 
+		                    <a href="" onclick="javascript: changeURL(this, 4, 'last', {{ currentPage }}, {{ notices.paginator.num_pages }});">尾页</a>&nbsp;&nbsp;
+		                </td>
+	                  </tr>
+	                </table>
+						
+				</table>
+				</form>
+								
+                </td>
+            </tr>
+          </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+

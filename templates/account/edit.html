@@ -1,0 +1,97 @@
+<script type="text/javascript">
+  	function removeRolename() {
+  		$("#role_name").val("");//清空
+  		return false;
+  	}
+  	
+  	function showOrHidden(flag) {
+  		if(flag == '0' ) {
+        	document.getElementById('agent').style.display="block" ;
+  		} else if(flag == '1') {
+        	document.getElementById('agent').style.display="none" ;
+  		}
+	}
+  	
+</script>
+
+
+<div class="page">
+	<div class="pageContent">
+	
+	<form method="post" action="{% url accounts_edit user.id %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<input type="hidden" name="navTabId" value="accountindex"/>
+		<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>用户名：</label>
+				<input type="text" class="required" size="30"  name="username" value="{{ user.username }}" readonly="readonly" />
+			</div>
+			
+            <div class="unit">
+				<label>邮箱地址：</label>
+				<input type="text" class="required" size="30" name="email" value="{{ user.email }}" />
+			</div>
+			{% ifequal request.user.userprofile.user_type 3 %}
+            <div class="unit">
+				<label>用户类型：</label>
+				<select name="user_type" class="required combox" >
+					{% for key,value in account_usertype_dict.items %}
+						{% ifequal user.userprofile.user_type key %}
+							<option value="{{ key }}" selected="selected">{{ value }}</option>
+						{% else %}
+							<option value="{{ key }}">{{ value }}</option>
+						{% endifequal %}
+					{% endfor %}
+				</select>
+			</div>
+			{% endifequal %}
+			
+            <div class="unit">
+				<label>公司名称：</label>
+				<input type="text" class="" size="30" name="company" value="{{ user.userprofile.company }}" />
+			</div>
+            <div class="unit">
+				<label>公司产品：</label>
+				<input type="text" class="" size="30" name="product" value="{{ user.userprofile.product }}" />
+			</div>
+            <div class="unit">
+				<label>联系人：</label>
+				<input type="text" class="" size="30" name="contact_user" value="{{ user.userprofile.contact_user }}" />
+			</div>
+            <div class="unit">
+				<label>联系电话：</label>
+				<input type="text" class="" size="30" name="contact_tel" value="{{ user.userprofile.contact_tel }}" />
+			</div>
+            <div class="unit">
+				<label>手机号码：</label>
+				<input type="text" class="" size="30" name="contact_phone" value="{{ user.userprofile.contact_phone }}" />
+			</div>
+			
+			<div class="unit">
+				<label>是否重置密码：</label>
+				 <input type="radio" name="agent_flag" value="0" onclick="javascript: showOrHidden('0');" /> 是&nbsp;&nbsp;&nbsp;
+             	 <input type="radio" name="agent_flag" value="1" checked="checked" onclick="javascript: showOrHidden('1');" /> 否
+			</div>
+			
+			<div id="agent" style="display:none;">
+				<div class="unit">
+					<label>密码：</label>
+					<input type="password" class="" size="30" name="password" value="" />
+				</div>
+				<div class="unit">
+					<label>确认密码：</label>
+					<input type="password" class="" size="30" name="confirmpwd" value="" />
+				</div>
+			</div>
+			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<script type="text/javascript">
+  	function removeRolename() {
+  		$("#role_name").val("");//清空
+  		return false;
+  	}
+</script>
+
+
+<div class="page">
+	<div class="pageContent">
+	
+	<form method="post" action="{% url accounts_register %}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">{% csrf_token %}
+		<input type="hidden" name="navTabId" value="accountindex"/>
+		<div class="pageFormContent" layoutH="58">
+
+			<div class="unit">
+				<label>用户名：</label>
+				<input type="text" class="required" size="30"  name="username" value="" />
+				<span class="info">&nbsp;&nbsp;&nbsp;(登录系统的帐号)</span>
+			</div>
+			<div class="unit">
+				<label>密码：</label>
+				<input type="password" class="required" size="30" name="password" value="" />
+			</div>
+			<div class="unit">
+				<label>确认密码：</label>
+				<input type="password" class="required" size="30" name="confirmpwd" value="" />
+			</div>
+            <div class="unit">
+				<label>邮箱地址：</label>
+				<input type="text" class="required" size="30" name="email" value="" />
+			</div>
+            <div class="unit">
+				<label>用户类型：</label>
+				<select name="user_type" class="required combox" >
+					{% for key,value in account_usertype_dict.items %}
+						<option value="{{ key }}">{{ value }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			
+            <div class="unit">
+				<label>公司名称：</label>
+				<input type="text" class="" size="30" name="company" value="" />
+			</div>
+            <div class="unit">
+				<label>公司产品：</label>
+				<input type="text" class="" size="30" name="product" value="" />
+			</div>
+            <div class="unit">
+				<label>联系人：</label>
+				<input type="text" class="" size="30" name="contact_user" value="" />
+			</div>
+            <div class="unit">
+				<label>联系电话：</label>
+				<input type="text" class="" size="30" name="contact_tel" value="" />
+			</div>
+            <div class="unit">
+				<label>手机号码：</label>
+				<input type="text" class="" size="30" name="contact_phone" value="" />
+			</div>
+
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+	</form>
+	
+	</div>
+</div>
